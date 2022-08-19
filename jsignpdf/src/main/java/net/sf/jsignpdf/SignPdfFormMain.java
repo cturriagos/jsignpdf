@@ -5,20 +5,198 @@
  */
 package net.sf.jsignpdf;
 
+import java.awt.Toolkit;
+import java.awt.datatransfer.DataFlavor;
+import java.io.File;
+import java.net.URL;
+import java.util.List;
+import java.util.Set;
+import java.util.logging.Level;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
+import javax.swing.TransferHandler;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
+import javax.swing.filechooser.FileFilter;
+import static net.sf.jsignpdf.Constants.LOGGER;
+import static net.sf.jsignpdf.Constants.RES;
+import net.sf.jsignpdf.types.CertificationLevel;
+import net.sf.jsignpdf.types.HashAlgorithm;
+import net.sf.jsignpdf.types.PDFEncryption;
+import net.sf.jsignpdf.types.PrintRight;
+import net.sf.jsignpdf.utils.GuiUtils;
+import net.sf.jsignpdf.utils.KeyStoreUtils;
+import net.sf.jsignpdf.utils.PropertyProvider;
+import org.apache.commons.lang3.StringUtils;
 
 /**
  *
  * @author ldelacruzg
  */
 public class SignPdfFormMain extends javax.swing.JFrame {
+    
+    private static final long serialVersionUID = 1L;
+
+    private SignerFileChooser fileChooser = new SignerFileChooser();
+
+    protected final PropertyProvider props = PropertyProvider.getInstance();
+
+    private boolean autoclose = false;
+    private BasicSignerOptions options;
+    private SignerLogic signerLogic;
+    private VisibleSignatureDialog vsDialog;
+    private TsaDialog tsaDialog;
 
     /**
      * Creates new form SignPdfFormMain
      */
-    public SignPdfFormMain() {
-        initComponents();
-        this.setLocationRelativeTo(null);
+    public SignPdfFormMain(int aCloseOperation) {
+        if (options == null) {
+            options = new BasicSignerOptions();
+        }
+
+        this.options = options;
+
+        signerLogic = new SignerLogic(options);
+        vsDialog = new VisibleSignatureDialog(this, true, options, fileChooser);
+        tsaDialog = new TsaDialog(this, true, options);
+
+        options.loadOptions();
+        try {
+            options.loadCmdLine();
+        } catch (Exception e) {
+            e.printStackTrace();
+            LOGGER.fine(e.getMessage());
+        }
+
+        setDefaultCloseOperation(aCloseOperation);
+        getRootPane().setDefaultButton(btnSignIt);
+
+        final Set<String> tmpKsTypes = KeyStoreUtils.getKeyStores();
+        cbKeystoreType.setModel(new DefaultComboBoxModel(tmpKsTypes.toArray(new String[tmpKsTypes.size()])));
+        if (tmpKsTypes.contains(Constants.KEYSTORE_TYPE_WINDOWS_MY)) {
+            cbKeystoreType.setSelectedItem(Constants.KEYSTORE_TYPE_WINDOWS_MY);
+        }
+
+        cbPdfEncryption.setModel(new DefaultComboBoxModel(PDFEncryption.values()));
+        cbCertLevel.setModel(new DefaultComboBoxModel(CertificationLevel.values()));
+
+        JTextAreaHandler textHandler = new JTextAreaHandler(infoTextArea);
+        textHandler.setLevel(Level.ALL);
+        LOGGER.addHandler(textHandler);
+
+        TransferHandler handler = new TransferHandler() {
+            @Override
+            public boolean canImport(TransferHandler.TransferSupport info) {
+                return info.isDataFlavorSupported(DataFlavor.javaFileListFlavor);
+            }
+
+            @Override
+            public boolean importData(TransferHandler.TransferSupport info) {
+                if (!info.isDrop() || !info.isDataFlavorSupported(DataFlavor.javaFileListFlavor)) {
+                    return false;
+                }
+
+                List<File> data;
+                try {
+                    data = (List<File>) info.getTransferable().getTransferData(DataFlavor.javaFileListFlavor);
+                } catch (Exception e) {
+                    return false;
+                }
+
+                String lastFile = "";
+                for (File file : data) {
+                    lastFile = file.getPath();
+                }
+                tfInPdfFile.setText(lastFile);
+
+                return true;
+            }
+        };
+
+        tfInPdfFile.getDocument().addDocumentListener(new DocumentListener() {
+            @Override
+            public void insertUpdate(DocumentEvent e) {
+                fillOutputPdfName();
+            }
+
+            @Override
+            public void removeUpdate(DocumentEvent e) {
+                fillOutputPdfName();
+            }
+
+            @Override
+            public void changedUpdate(DocumentEvent e) {
+                fillOutputPdfName();
+            }
+        });
+        tfInPdfFile.setTransferHandler(handler);
+        this.setTransferHandler(handler);
+    }
+
+    private SignPdfFormMain() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    
+    void showFileChooser(final JTextField aFileField, final FileFilter aFilter, final int aType) {
+        fileChooser.showFileChooser(aFileField, aFilter, aType);
+    }
+    
+    private void storeToOptions() {
+        options.setOutFile(tfOutPdfFile.getText());
+    }
+    
+    /**
+     * Suggest output file name.
+     */
+    private void fillOutputPdfName() {
+        String oldName = tfInPdfFile.getText();
+        File f = new File(oldName);
+        try {
+            if (f.exists() && f.isFile()) {
+
+                String justName = f.getName();
+                int dotPosition = justName.lastIndexOf('.');
+                if (dotPosition > 0) {
+                    justName = justName.substring(0, dotPosition);
+                }
+
+                File signedPDF = new File(f.getParentFile(), justName + "_signed.pdf");
+
+                tfOutPdfFile.setText(signedPDF.getPath());
+            }
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            LOGGER.fine(ex.getMessage());
+        }
+    }
+    
+    /**
+     * Checks if inFile and outFile are different.
+     *
+     * @return result of the check
+     */
+    private boolean checkInOutDiffers() {
+        final String tmpInName = tfInPdfFile.getText();
+        final String tmpOutName = tfOutPdfFile.getText();
+        boolean tmpResult = true;
+        if (tmpInName != null && StringUtils.isNotEmpty(tmpOutName)) {
+            try {
+                final File tmpInFile = (new File(tmpInName)).getAbsoluteFile();
+                final File tmpOutFile = (new File(tmpOutName)).getAbsoluteFile();
+                if (tmpInFile.equals(tmpOutFile)) {
+                    tmpResult = false;
+                    JOptionPane.showMessageDialog(this, RES.get("gui.filesEqual.error"), RES.get("gui.check.error.title"),
+                            JOptionPane.ERROR_MESSAGE);
+                }
+            } catch (Exception e) {
+                tmpResult = false;
+                JOptionPane.showMessageDialog(this, e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+            }
+        }
+        return tmpResult;
     }
 
     /**
@@ -37,31 +215,31 @@ public class SignPdfFormMain extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         cbKeystoreType = new javax.swing.JComboBox<>();
         jLabel4 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        tfInPdfFile = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        jTextField4 = new javax.swing.JTextField();
+        tfOutPdfFile = new javax.swing.JTextField();
+        btnOutPdfFile = new javax.swing.JButton();
+        textFieldOutFileName = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        jComboBox2 = new javax.swing.JComboBox<>();
+        cbPdfEncryption = new javax.swing.JComboBox<>();
         jLabel8 = new javax.swing.JLabel();
-        jPasswordField1 = new javax.swing.JPasswordField();
+        pfPdfUserPwd = new javax.swing.JPasswordField();
         jCheckBox1 = new javax.swing.JCheckBox();
-        jButton3 = new javax.swing.JButton();
+        btnInPdfFile = new javax.swing.JButton();
         btnInfoKeystoreType = new javax.swing.JButton();
         jButton11 = new javax.swing.JButton();
         jButton12 = new javax.swing.JButton();
         jPanel6 = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
-        jTextField5 = new javax.swing.JTextField();
+        tfReason = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
-        jTextField6 = new javax.swing.JTextField();
+        tfLocation = new javax.swing.JTextField();
         jLabel13 = new javax.swing.JLabel();
-        jTextField7 = new javax.swing.JTextField();
+        tfContact = new javax.swing.JTextField();
         jLabel14 = new javax.swing.JLabel();
-        jComboBox3 = new javax.swing.JComboBox<>();
+        cbCertLevel = new javax.swing.JComboBox<>();
         jButton13 = new javax.swing.JButton();
         jButton14 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
@@ -74,7 +252,7 @@ public class SignPdfFormMain extends javax.swing.JFrame {
         jLabel15 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        infoTextArea = new javax.swing.JTextArea();
         jLabel17 = new javax.swing.JLabel();
         jTextField8 = new javax.swing.JTextField();
         jLabel18 = new javax.swing.JLabel();
@@ -89,13 +267,12 @@ public class SignPdfFormMain extends javax.swing.JFrame {
         jPanel8 = new javax.swing.JPanel();
         jLabel20 = new javax.swing.JLabel();
         jPanel9 = new javax.swing.JPanel();
-        jButton8 = new javax.swing.JButton();
+        btnSignIt = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("JSignPDF");
         setMaximumSize(new java.awt.Dimension(750, 700));
         setMinimumSize(new java.awt.Dimension(750, 700));
-        setPreferredSize(new java.awt.Dimension(750, 700));
         setResizable(false);
         setSize(new java.awt.Dimension(750, 700));
 
@@ -116,20 +293,24 @@ public class SignPdfFormMain extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel4.setText("Documento *");
 
-        jTextField1.setEditable(false);
-        jTextField1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        tfInPdfFile.setEditable(false);
+        tfInPdfFile.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel5.setText("Doc. Salida *");
 
-        jTextField3.setEditable(false);
-        jTextField3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        tfOutPdfFile.setEditable(false);
+        tfOutPdfFile.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
-        jButton1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jButton1.setText("Examinar");
+        btnOutPdfFile.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btnOutPdfFile.setText("Examinar");
+        btnOutPdfFile.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnOutPdfFileActionPerformed(evt);
+            }
+        });
 
-        jTextField4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jTextField4.setText("jTextField4");
+        textFieldOutFileName.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel6.setText(".pdf");
@@ -137,20 +318,25 @@ public class SignPdfFormMain extends javax.swing.JFrame {
         jLabel7.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel7.setText("Encriptación");
 
-        jComboBox2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbPdfEncryption.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        cbPdfEncryption.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel8.setText("Contraseña");
 
-        jPasswordField1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jPasswordField1.setText("jPasswordField1");
+        pfPdfUserPwd.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        pfPdfUserPwd.setText("jPasswordField1");
 
         jCheckBox1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jCheckBox1.setText("Visualizar");
 
-        jButton3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jButton3.setText("Examinar");
+        btnInPdfFile.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btnInPdfFile.setText("Examinar");
+        btnInPdfFile.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnInPdfFileActionPerformed(evt);
+            }
+        });
 
         btnInfoKeystoreType.setIcon(new javax.swing.ImageIcon(getClass().getResource("/net/sf/jsignpdf/icon-info.png"))); // NOI18N
         btnInfoKeystoreType.setContentAreaFilled(false);
@@ -205,24 +391,24 @@ public class SignPdfFormMain extends javax.swing.JFrame {
                             .addGroup(jPanel5Layout.createSequentialGroup()
                                 .addGap(18, 18, 18)
                                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jComboBox2, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(cbPdfEncryption, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addGroup(jPanel5Layout.createSequentialGroup()
-                                        .addComponent(jPasswordField1)
+                                        .addComponent(pfPdfUserPwd)
                                         .addGap(18, 18, 18)
                                         .addComponent(jCheckBox1))
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
                                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(jTextField1, javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(tfInPdfFile, javax.swing.GroupLayout.Alignment.LEADING)
                                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel5Layout.createSequentialGroup()
-                                                .addComponent(jTextField3, javax.swing.GroupLayout.DEFAULT_SIZE, 274, Short.MAX_VALUE)
+                                                .addComponent(tfOutPdfFile, javax.swing.GroupLayout.DEFAULT_SIZE, 274, Short.MAX_VALUE)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(textFieldOutFileName, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                                 .addComponent(jLabel6)))
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
+                                            .addComponent(btnOutPdfFile, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(btnInPdfFile, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
                             .addGroup(jPanel5Layout.createSequentialGroup()
                                 .addComponent(btnInfoKeystoreType, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -242,25 +428,25 @@ public class SignPdfFormMain extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton3))
+                    .addComponent(tfInPdfFile, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnInPdfFile))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
                     .addComponent(jLabel5)
                     .addComponent(jButton11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tfOutPdfFile, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(textFieldOutFileName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel6)
-                    .addComponent(jButton1))
+                    .addComponent(btnOutPdfFile))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
                     .addComponent(jLabel7)
                     .addComponent(jButton12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cbPdfEncryption, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
-                    .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(pfPdfUserPwd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jCheckBox1))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -273,23 +459,23 @@ public class SignPdfFormMain extends javax.swing.JFrame {
         jLabel10.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel10.setText("Razón");
 
-        jTextField5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        tfReason.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
         jLabel12.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel12.setText("Ubicación");
 
-        jTextField6.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        tfLocation.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
         jLabel13.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel13.setText("Contacto");
 
-        jTextField7.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        tfContact.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
         jLabel14.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel14.setText("Nivel de Cetificación");
 
-        jComboBox3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbCertLevel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        cbCertLevel.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jButton13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/net/sf/jsignpdf/icon-info.png"))); // NOI18N
         jButton13.setContentAreaFilled(false);
@@ -318,12 +504,12 @@ public class SignPdfFormMain extends javax.swing.JFrame {
                             .addComponent(jLabel10))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField5)
-                            .addComponent(jTextField6)))
+                            .addComponent(tfReason)
+                            .addComponent(tfLocation)))
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addComponent(jLabel13)
                         .addGap(18, 18, 18)
-                        .addComponent(jTextField7))
+                        .addComponent(tfContact))
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addComponent(jLabel9)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -334,7 +520,7 @@ public class SignPdfFormMain extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jButton14, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jComboBox3, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addComponent(cbCertLevel, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel6Layout.setVerticalGroup(
@@ -347,20 +533,20 @@ public class SignPdfFormMain extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel10)
-                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tfReason, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel12)
-                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tfLocation, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel13)
-                    .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tfContact, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
                     .addComponent(jLabel14)
                     .addComponent(jButton14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cbCertLevel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(19, Short.MAX_VALUE))
         );
 
@@ -442,10 +628,10 @@ public class SignPdfFormMain extends javax.swing.JFrame {
         jLabel16.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel16.setText("Descripción de la firma");
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setFont(new java.awt.Font("Monospaced", 0, 14)); // NOI18N
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        infoTextArea.setColumns(20);
+        infoTextArea.setFont(new java.awt.Font("Monospaced", 0, 14)); // NOI18N
+        infoTextArea.setRows(5);
+        jScrollPane1.setViewportView(infoTextArea);
 
         jLabel17.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel17.setText("Tamaño de fuente");
@@ -587,8 +773,8 @@ public class SignPdfFormMain extends javax.swing.JFrame {
             .addGap(0, 500, Short.MAX_VALUE)
         );
 
-        jButton8.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jButton8.setText("Firmar");
+        btnSignIt.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btnSignIt.setText("Firmar");
 
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
         jPanel8.setLayout(jPanel8Layout);
@@ -603,7 +789,7 @@ public class SignPdfFormMain extends javax.swing.JFrame {
                     .addComponent(jPanel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jButton8)))
+                        .addComponent(btnSignIt)))
                 .addContainerGap())
         );
         jPanel8Layout.setVerticalGroup(
@@ -614,7 +800,7 @@ public class SignPdfFormMain extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
-                .addComponent(jButton8)
+                .addComponent(btnSignIt)
                 .addContainerGap())
         );
 
@@ -661,6 +847,14 @@ public class SignPdfFormMain extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(this, "Mensaje de información");
     }//GEN-LAST:event_btnInfoKeystoreTypeActionPerformed
 
+    private void btnInPdfFileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInPdfFileActionPerformed
+        showFileChooser(tfInPdfFile, SignerFileChooser.FILEFILTER_PDF, JFileChooser.OPEN_DIALOG);
+    }//GEN-LAST:event_btnInPdfFileActionPerformed
+
+    private void btnOutPdfFileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOutPdfFileActionPerformed
+        showFileChooser(tfOutPdfFile, SignerFileChooser.FILEFILTER_PDF, JFileChooser.SAVE_DIALOG);
+    }//GEN-LAST:event_btnOutPdfFileActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -697,9 +891,14 @@ public class SignPdfFormMain extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnInPdfFile;
     private javax.swing.JButton btnInfoKeystoreType;
+    private javax.swing.JButton btnOutPdfFile;
+    private javax.swing.JButton btnSignIt;
+    private javax.swing.JComboBox<String> cbCertLevel;
     private javax.swing.JComboBox<String> cbKeystoreType;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JComboBox<String> cbPdfEncryption;
+    private javax.swing.JTextArea infoTextArea;
     private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton12;
     private javax.swing.JButton jButton13;
@@ -707,15 +906,11 @@ public class SignPdfFormMain extends javax.swing.JFrame {
     private javax.swing.JButton jButton15;
     private javax.swing.JButton jButton16;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
     private javax.swing.JCheckBox jCheckBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
-    private javax.swing.JComboBox<String> jComboBox3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel12;
@@ -744,18 +939,17 @@ public class SignPdfFormMain extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
-    private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField10;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
     private javax.swing.JTextField jTextField8;
     private javax.swing.JTextField jTextField9;
+    private javax.swing.JPasswordField pfPdfUserPwd;
+    private javax.swing.JTextField textFieldOutFileName;
+    private javax.swing.JTextField tfContact;
+    private javax.swing.JTextField tfInPdfFile;
+    private javax.swing.JTextField tfLocation;
+    private javax.swing.JTextField tfOutPdfFile;
+    private javax.swing.JTextField tfReason;
     // End of variables declaration//GEN-END:variables
 }

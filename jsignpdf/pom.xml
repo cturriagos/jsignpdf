@@ -104,5 +104,10 @@
             <groupId>com.github.kwart.jsign</groupId>
             <artifactId>jsign-pkcs11</artifactId>
         </dependency>
+        <dependency>
+            <groupId>org.netbeans.external</groupId>
+            <artifactId>AbsoluteLayout</artifactId>
+            <version>RELEASE123</version>
+        </dependency>
     </dependencies>
 </project>
