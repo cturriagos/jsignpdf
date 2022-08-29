@@ -35,7 +35,7 @@ import org.apache.commons.lang3.StringUtils;
  *
  * @author ldelacruzg
  */
-public class SignPdfFormMain extends javax.swing.JFrame {
+public class SignPdfFormMain extends javax.swing.JFrame implements SignResultListener {
     
     private static final long serialVersionUID = 1L;
 
@@ -137,6 +137,10 @@ public class SignPdfFormMain extends javax.swing.JFrame {
     }
 
     private SignPdfFormMain() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    SignPdfFormMain(int EXIT_ON_CLOSE, SignerOptionsFromCmdLine tmpOpts) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
@@ -952,4 +956,9 @@ public class SignPdfFormMain extends javax.swing.JFrame {
     private javax.swing.JTextField tfOutPdfFile;
     private javax.swing.JTextField tfReason;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public void signerFinishedEvent(Throwable e) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

@@ -1246,7 +1246,7 @@ public class SignPdfForm extends javax.swing.JFrame implements SignResultListene
         btnInfoOutPdfFile.setIcon(new javax.swing.ImageIcon(getClass().getResource("/net/sf/jsignpdf/icon-info.png"))); // NOI18N
         btnInfoOutPdfFile.setBorder(null);
         btnInfoOutPdfFile.setContentAreaFilled(false);
-        btnInfoOutPdfFile.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnInfoOutPdfFile.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btnInfoOutPdfFile.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnInfoOutPdfFileActionPerformed(evt);
@@ -1262,7 +1262,7 @@ public class SignPdfForm extends javax.swing.JFrame implements SignResultListene
         btnInfoPdfEncryption.setIcon(new javax.swing.ImageIcon(getClass().getResource("/net/sf/jsignpdf/icon-info.png"))); // NOI18N
         btnInfoPdfEncryption.setBorder(null);
         btnInfoPdfEncryption.setContentAreaFilled(false);
-        btnInfoPdfEncryption.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnInfoPdfEncryption.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btnInfoPdfEncryption.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnInfoPdfEncryptionActionPerformed(evt);
@@ -1278,7 +1278,7 @@ public class SignPdfForm extends javax.swing.JFrame implements SignResultListene
         btnInfoCertificationLevel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/net/sf/jsignpdf/icon-info.png"))); // NOI18N
         btnInfoCertificationLevel.setBorder(null);
         btnInfoCertificationLevel.setContentAreaFilled(false);
-        btnInfoCertificationLevel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnInfoCertificationLevel.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btnInfoCertificationLevel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnInfoCertificationLevelActionPerformed(evt);
@@ -1294,7 +1294,7 @@ public class SignPdfForm extends javax.swing.JFrame implements SignResultListene
         btnInfokeyAlias.setIcon(new javax.swing.ImageIcon(getClass().getResource("/net/sf/jsignpdf/icon-info.png"))); // NOI18N
         btnInfokeyAlias.setBorder(null);
         btnInfokeyAlias.setContentAreaFilled(false);
-        btnInfokeyAlias.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnInfokeyAlias.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btnInfokeyAlias.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnInfokeyAliasActionPerformed(evt);
@@ -1310,7 +1310,7 @@ public class SignPdfForm extends javax.swing.JFrame implements SignResultListene
         btnInfoKeystoreType.setIcon(new javax.swing.ImageIcon(getClass().getResource("/net/sf/jsignpdf/icon-info.png"))); // NOI18N
         btnInfoKeystoreType.setBorder(null);
         btnInfoKeystoreType.setContentAreaFilled(false);
-        btnInfoKeystoreType.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnInfoKeystoreType.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btnInfoKeystoreType.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnInfoKeystoreTypeActionPerformed(evt);

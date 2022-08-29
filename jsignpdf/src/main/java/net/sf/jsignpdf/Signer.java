@@ -156,10 +156,10 @@ public class Signer {
             } catch (Exception e) {
                 System.err.println("Can't set Look&Feel.");
             }
-            SignPdfForm tmpForm = new SignPdfForm(WindowConstants.EXIT_ON_CLOSE, tmpOpts);
-            tmpForm.pack();
-            GuiUtils.center(tmpForm);
-            tmpForm.setVisible(true);
+            SignPdfFormMain tmpFormMain = new SignPdfFormMain(WindowConstants.EXIT_ON_CLOSE, tmpOpts);
+            tmpFormMain.pack();
+            GuiUtils.center(tmpFormMain);
+            tmpFormMain.setVisible(true);
         }
     }
 
