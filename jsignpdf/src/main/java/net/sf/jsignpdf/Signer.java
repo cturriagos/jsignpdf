@@ -29,6 +29,7 @@
  */
 package net.sf.jsignpdf;
 
+import java.awt.Dimension;
 import static net.sf.jsignpdf.Constants.EXIT_CODE_NO_COMMAND;
 import static net.sf.jsignpdf.Constants.EXIT_CODE_PARSE_ERR;
 import static net.sf.jsignpdf.Constants.NEW_LINE;
@@ -45,6 +46,10 @@ import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 import java.util.logging.Level;
+import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
 
 import javax.swing.UIManager;
 import javax.swing.WindowConstants;
@@ -156,10 +161,21 @@ public class Signer {
             } catch (Exception e) {
                 System.err.println("Can't set Look&Feel.");
             }
-            SignPdfFormMain tmpFormMain = new SignPdfFormMain(WindowConstants.EXIT_ON_CLOSE, tmpOpts);
-            tmpFormMain.pack();
-            GuiUtils.center(tmpFormMain);
-            tmpFormMain.setVisible(true);
+            SignPdfForm tmpForm = new SignPdfForm(WindowConstants.EXIT_ON_CLOSE, tmpOpts);
+            tmpForm.pack();
+            GuiUtils.center(tmpForm);
+            tmpForm.setVisible(true);
+            JTextArea ta = new JTextArea(20, 30);
+            ta.setText("BIENVENIDOS A JSIGN PDF!\n\nESTE PROGRAMA PARA FIRMAS DIGITALES TE PROPORCIONA LO SIGUIENTE:\n\n"
+                    + "1. FIRMAS EN PDF NORMALES Y ENCRIPTADAS\n"
+                    + "2. LIBERTAD DE ESTABLECER UN ARCHIVO DE SALIDA\n"
+                    + "3. COLOCAR INFORMACIÓN ADICIONAL DENTRO DE LA FIRMA\n"
+                    + "4. ESTABLECER NIVEL DE CERTIFICACIÓN Y TIPO DE HASH\n\n"
+                    + "MODIFICACIONES HECHAS POR RICARDO TURRIAGO Y LUIS DE LA CRUZ");
+            ta.setCaretPosition(0);
+            ta.setEditable(false);
+            UIManager.put("OptionPane.minimumSize",new Dimension(700,500));
+            JOptionPane.showMessageDialog(null, new JScrollPane(ta), "DESCRIPCIÓN DE PANTALLA PRINCIPAL", JOptionPane.INFORMATION_MESSAGE);
         }
     }
 

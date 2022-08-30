@@ -844,7 +844,7 @@ public class VisibleSignatureDialog extends javax.swing.JDialog {
         btninfoSignatureText.setIcon(new javax.swing.ImageIcon(getClass().getResource("/net/sf/jsignpdf/icon-info.png"))); // NOI18N
         btninfoSignatureText.setBorder(null);
         btninfoSignatureText.setContentAreaFilled(false);
-        btninfoSignatureText.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btninfoSignatureText.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btninfoSignatureText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btninfoSignatureTextActionPerformed(evt);
@@ -860,7 +860,7 @@ public class VisibleSignatureDialog extends javax.swing.JDialog {
         btnInfoPosition.setIcon(new javax.swing.ImageIcon(getClass().getResource("/net/sf/jsignpdf/icon-info.png"))); // NOI18N
         btnInfoPosition.setBorder(null);
         btnInfoPosition.setContentAreaFilled(false);
-        btnInfoPosition.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnInfoPosition.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btnInfoPosition.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnInfoPositionActionPerformed(evt);
@@ -877,7 +877,7 @@ public class VisibleSignatureDialog extends javax.swing.JDialog {
         btnInfoDisplay.setIcon(new javax.swing.ImageIcon(getClass().getResource("/net/sf/jsignpdf/icon-info.png"))); // NOI18N
         btnInfoDisplay.setBorder(null);
         btnInfoDisplay.setContentAreaFilled(false);
-        btnInfoDisplay.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnInfoDisplay.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btnInfoDisplay.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnInfoDisplayActionPerformed(evt);

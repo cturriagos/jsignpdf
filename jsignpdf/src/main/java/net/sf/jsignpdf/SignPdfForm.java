@@ -150,7 +150,7 @@ public class SignPdfForm extends javax.swing.JFrame implements SignResultListene
         JTextAreaHandler textHandler = new JTextAreaHandler(infoTextArea);
         textHandler.setLevel(Level.ALL);
         LOGGER.addHandler(textHandler);
-
+        
         updateFromOptions();
 
         TransferHandler handler = new TransferHandler() {
@@ -670,7 +670,7 @@ public class SignPdfForm extends javax.swing.JFrame implements SignResultListene
         });
         getContentPane().setLayout(new java.awt.GridBagLayout());
 
-        lblKeystoreType.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblKeystoreType.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
         lblKeystoreType.setLabelFor(cbKeystoreType);
         lblKeystoreType.setText("Keystore type");
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -697,7 +697,7 @@ public class SignPdfForm extends javax.swing.JFrame implements SignResultListene
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
         getContentPane().add(cbKeystoreType, gridBagConstraints);
 
-        lblKeystoreFile.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblKeystoreFile.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
         lblKeystoreFile.setLabelFor(tfKeystoreFile);
         lblKeystoreFile.setText("Keystore file");
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -709,7 +709,7 @@ public class SignPdfForm extends javax.swing.JFrame implements SignResultListene
         gridBagConstraints.insets = new java.awt.Insets(2, 5, 2, 10);
         getContentPane().add(lblKeystoreFile, gridBagConstraints);
 
-        btnVisibleSigSettings.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btnVisibleSigSettings.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
         btnVisibleSigSettings.setIcon(new javax.swing.ImageIcon(getClass().getResource("/net/sf/jsignpdf/options16.png"))); // NOI18N
         btnVisibleSigSettings.setText("Settings");
         btnVisibleSigSettings.setHorizontalAlignment(javax.swing.SwingConstants.LEADING);
@@ -737,7 +737,7 @@ public class SignPdfForm extends javax.swing.JFrame implements SignResultListene
         gridBagConstraints.insets = new java.awt.Insets(2, 0, 2, 0);
         getContentPane().add(tfKeystoreFile, gridBagConstraints);
 
-        btnKeystoreFile.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btnKeystoreFile.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
         btnKeystoreFile.setIcon(new javax.swing.ImageIcon(getClass().getResource("/net/sf/jsignpdf/fileopen16.png"))); // NOI18N
         btnKeystoreFile.setText("Browse...");
         btnKeystoreFile.setHorizontalAlignment(javax.swing.SwingConstants.LEADING);
@@ -755,7 +755,7 @@ public class SignPdfForm extends javax.swing.JFrame implements SignResultListene
         gridBagConstraints.insets = new java.awt.Insets(1, 5, 1, 5);
         getContentPane().add(btnKeystoreFile, gridBagConstraints);
 
-        lblKeystorePwd.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblKeystorePwd.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
         lblKeystorePwd.setLabelFor(pfKeystorePwd);
         lblKeystorePwd.setText("Keystore password");
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -777,7 +777,7 @@ public class SignPdfForm extends javax.swing.JFrame implements SignResultListene
         gridBagConstraints.insets = new java.awt.Insets(2, 0, 2, 0);
         getContentPane().add(pfKeystorePwd, gridBagConstraints);
 
-        chkbStorePwd.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        chkbStorePwd.setFont(new java.awt.Font("Segoe UI Emoji", 0, 14)); // NOI18N
         chkbStorePwd.setText("Store passwords");
         chkbStorePwd.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -788,7 +788,7 @@ public class SignPdfForm extends javax.swing.JFrame implements SignResultListene
         gridBagConstraints.insets = new java.awt.Insets(1, 5, 1, 5);
         getContentPane().add(chkbStorePwd, gridBagConstraints);
 
-        lblAlias.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblAlias.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
         lblAlias.setLabelFor(cbAlias);
         lblAlias.setText("Key alias");
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -811,7 +811,7 @@ public class SignPdfForm extends javax.swing.JFrame implements SignResultListene
         gridBagConstraints.insets = new java.awt.Insets(2, 0, 2, 0);
         getContentPane().add(cbAlias, gridBagConstraints);
 
-        btnLoadAliases.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btnLoadAliases.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
         btnLoadAliases.setIcon(new javax.swing.ImageIcon(getClass().getResource("/net/sf/jsignpdf/refresh16.png"))); // NOI18N
         btnLoadAliases.setText("Load keys");
         btnLoadAliases.setHorizontalAlignment(javax.swing.SwingConstants.LEADING);
@@ -828,7 +828,7 @@ public class SignPdfForm extends javax.swing.JFrame implements SignResultListene
         gridBagConstraints.insets = new java.awt.Insets(1, 5, 1, 5);
         getContentPane().add(btnLoadAliases, gridBagConstraints);
 
-        lblKeyPwd.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblKeyPwd.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
         lblKeyPwd.setLabelFor(pfKeyPwd);
         lblKeyPwd.setText("Key password");
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -850,7 +850,7 @@ public class SignPdfForm extends javax.swing.JFrame implements SignResultListene
         gridBagConstraints.insets = new java.awt.Insets(2, 0, 2, 0);
         getContentPane().add(pfKeyPwd, gridBagConstraints);
 
-        lblInPdfFile.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblInPdfFile.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
         lblInPdfFile.setLabelFor(tfInPdfFile);
         lblInPdfFile.setText("Input PDF file");
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -873,7 +873,7 @@ public class SignPdfForm extends javax.swing.JFrame implements SignResultListene
         gridBagConstraints.insets = new java.awt.Insets(2, 0, 2, 0);
         getContentPane().add(tfInPdfFile, gridBagConstraints);
 
-        btnInPdfFile.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btnInPdfFile.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
         btnInPdfFile.setIcon(new javax.swing.ImageIcon(getClass().getResource("/net/sf/jsignpdf/fileopen16.png"))); // NOI18N
         btnInPdfFile.setText("Browse...");
         btnInPdfFile.setHorizontalAlignment(javax.swing.SwingConstants.LEADING);
@@ -890,7 +890,7 @@ public class SignPdfForm extends javax.swing.JFrame implements SignResultListene
         gridBagConstraints.insets = new java.awt.Insets(1, 5, 1, 5);
         getContentPane().add(btnInPdfFile, gridBagConstraints);
 
-        lblPdfOwnerPwd.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblPdfOwnerPwd.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
         lblPdfOwnerPwd.setLabelFor(pfPdfOwnerPwd);
         lblPdfOwnerPwd.setText("Owner password");
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -912,7 +912,7 @@ public class SignPdfForm extends javax.swing.JFrame implements SignResultListene
         gridBagConstraints.insets = new java.awt.Insets(2, 0, 2, 0);
         getContentPane().add(pfPdfOwnerPwd, gridBagConstraints);
 
-        lblPdfUserPwd.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblPdfUserPwd.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
         lblPdfUserPwd.setLabelFor(pfPdfUserPwd);
         lblPdfUserPwd.setText("User password");
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -934,7 +934,7 @@ public class SignPdfForm extends javax.swing.JFrame implements SignResultListene
         gridBagConstraints.insets = new java.awt.Insets(2, 0, 2, 0);
         getContentPane().add(pfPdfUserPwd, gridBagConstraints);
 
-        lblOutPdfFile.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblOutPdfFile.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
         lblOutPdfFile.setLabelFor(tfOutPdfFile);
         lblOutPdfFile.setText("Output PDF file");
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -957,7 +957,7 @@ public class SignPdfForm extends javax.swing.JFrame implements SignResultListene
         gridBagConstraints.insets = new java.awt.Insets(2, 0, 2, 0);
         getContentPane().add(tfOutPdfFile, gridBagConstraints);
 
-        btnOutPdfFile.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btnOutPdfFile.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
         btnOutPdfFile.setIcon(new javax.swing.ImageIcon(getClass().getResource("/net/sf/jsignpdf/fileopen16.png"))); // NOI18N
         btnOutPdfFile.setText("Browse...");
         btnOutPdfFile.setHorizontalAlignment(javax.swing.SwingConstants.LEADING);
@@ -974,7 +974,7 @@ public class SignPdfForm extends javax.swing.JFrame implements SignResultListene
         gridBagConstraints.insets = new java.awt.Insets(1, 5, 1, 5);
         getContentPane().add(btnOutPdfFile, gridBagConstraints);
 
-        lblReason.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblReason.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
         lblReason.setLabelFor(tfReason);
         lblReason.setText("Reason");
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -996,7 +996,7 @@ public class SignPdfForm extends javax.swing.JFrame implements SignResultListene
         gridBagConstraints.insets = new java.awt.Insets(2, 0, 2, 0);
         getContentPane().add(tfReason, gridBagConstraints);
 
-        lblLocation.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblLocation.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
         lblLocation.setLabelFor(tfLocation);
         lblLocation.setText("Location");
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -1018,7 +1018,7 @@ public class SignPdfForm extends javax.swing.JFrame implements SignResultListene
         gridBagConstraints.insets = new java.awt.Insets(2, 0, 2, 0);
         getContentPane().add(tfLocation, gridBagConstraints);
 
-        lblCertLevel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblCertLevel.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
         lblCertLevel.setLabelFor(cbCertLevel);
         lblCertLevel.setText("Certification level");
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -1040,7 +1040,7 @@ public class SignPdfForm extends javax.swing.JFrame implements SignResultListene
         gridBagConstraints.insets = new java.awt.Insets(2, 0, 2, 0);
         getContentPane().add(cbCertLevel, gridBagConstraints);
 
-        chkbAppendSignature.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        chkbAppendSignature.setFont(new java.awt.Font("Segoe UI Emoji", 0, 14)); // NOI18N
         chkbAppendSignature.setText("Append signature");
         chkbAppendSignature.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -1051,7 +1051,7 @@ public class SignPdfForm extends javax.swing.JFrame implements SignResultListene
         gridBagConstraints.insets = new java.awt.Insets(2, 0, 2, 0);
         getContentPane().add(chkbAppendSignature, gridBagConstraints);
 
-        btnSignIt.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btnSignIt.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
         btnSignIt.setIcon(new javax.swing.ImageIcon(getClass().getResource("/net/sf/jsignpdf/signedpdf26.png"))); // NOI18N
         btnSignIt.setText("Sign It");
         btnSignIt.addActionListener(new java.awt.event.ActionListener() {
@@ -1067,7 +1067,7 @@ public class SignPdfForm extends javax.swing.JFrame implements SignResultListene
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         getContentPane().add(btnSignIt, gridBagConstraints);
 
-        chkbAdvanced.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        chkbAdvanced.setFont(new java.awt.Font("Segoe UI Emoji", 0, 14)); // NOI18N
         chkbAdvanced.setSelected(true);
         chkbAdvanced.setText("Advanced view");
         chkbAdvanced.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
@@ -1083,7 +1083,7 @@ public class SignPdfForm extends javax.swing.JFrame implements SignResultListene
         gridBagConstraints.insets = new java.awt.Insets(1, 5, 1, 5);
         getContentPane().add(chkbAdvanced, gridBagConstraints);
 
-        btnRights.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btnRights.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
         btnRights.setIcon(new javax.swing.ImageIcon(getClass().getResource("/net/sf/jsignpdf/security16.png"))); // NOI18N
         btnRights.setText("Rights");
         btnRights.setHorizontalAlignment(javax.swing.SwingConstants.LEADING);
@@ -1100,7 +1100,7 @@ public class SignPdfForm extends javax.swing.JFrame implements SignResultListene
         gridBagConstraints.insets = new java.awt.Insets(1, 5, 1, 5);
         getContentPane().add(btnRights, gridBagConstraints);
 
-        chkbVisibleSig.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        chkbVisibleSig.setFont(new java.awt.Font("Segoe UI Emoji", 0, 14)); // NOI18N
         chkbVisibleSig.setText("Visible signature");
         chkbVisibleSig.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
         chkbVisibleSig.setEnabled(false);
@@ -1116,7 +1116,7 @@ public class SignPdfForm extends javax.swing.JFrame implements SignResultListene
         gridBagConstraints.insets = new java.awt.Insets(2, 0, 2, 0);
         getContentPane().add(chkbVisibleSig, gridBagConstraints);
 
-        lblContact.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblContact.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
         lblContact.setLabelFor(tfContact);
         lblContact.setText("Contact");
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -1138,7 +1138,7 @@ public class SignPdfForm extends javax.swing.JFrame implements SignResultListene
         gridBagConstraints.insets = new java.awt.Insets(2, 0, 2, 0);
         getContentPane().add(tfContact, gridBagConstraints);
 
-        btnTsaOcsp.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btnTsaOcsp.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
         btnTsaOcsp.setIcon(new javax.swing.ImageIcon(getClass().getResource("/net/sf/jsignpdf/clock16.png"))); // NOI18N
         btnTsaOcsp.setText("TSA & OCSP");
         btnTsaOcsp.setHorizontalAlignment(javax.swing.SwingConstants.LEADING);
@@ -1165,7 +1165,7 @@ public class SignPdfForm extends javax.swing.JFrame implements SignResultListene
         gridBagConstraints.insets = new java.awt.Insets(2, 0, 2, 0);
         getContentPane().add(cbHashAlgorithm, gridBagConstraints);
 
-        lblHashAlgorithm.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblHashAlgorithm.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
         lblHashAlgorithm.setLabelFor(cbHashAlgorithm);
         lblHashAlgorithm.setText("Hash algorithm");
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -1176,7 +1176,7 @@ public class SignPdfForm extends javax.swing.JFrame implements SignResultListene
         gridBagConstraints.insets = new java.awt.Insets(2, 5, 2, 10);
         getContentPane().add(lblHashAlgorithm, gridBagConstraints);
 
-        lblPdfEncryption.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblPdfEncryption.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
         lblPdfEncryption.setLabelFor(cbPdfEncryption);
         lblPdfEncryption.setText("PDF Encryption");
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -1203,7 +1203,7 @@ public class SignPdfForm extends javax.swing.JFrame implements SignResultListene
         gridBagConstraints.insets = new java.awt.Insets(2, 0, 2, 0);
         getContentPane().add(cbPdfEncryption, gridBagConstraints);
 
-        lblEncCertFile.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblEncCertFile.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
         lblEncCertFile.setLabelFor(tfEncCertFile);
         lblEncCertFile.setText("Certificate file");
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -1225,7 +1225,7 @@ public class SignPdfForm extends javax.swing.JFrame implements SignResultListene
         gridBagConstraints.insets = new java.awt.Insets(2, 0, 2, 0);
         getContentPane().add(tfEncCertFile, gridBagConstraints);
 
-        btnEncCertFile.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btnEncCertFile.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
         btnEncCertFile.setIcon(new javax.swing.ImageIcon(getClass().getResource("/net/sf/jsignpdf/fileopen16.png"))); // NOI18N
         btnEncCertFile.setText("Browse...");
         btnEncCertFile.setHorizontalAlignment(javax.swing.SwingConstants.LEADING);
