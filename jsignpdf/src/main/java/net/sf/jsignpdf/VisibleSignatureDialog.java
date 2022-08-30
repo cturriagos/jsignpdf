@@ -410,7 +410,7 @@ public class VisibleSignatureDialog extends javax.swing.JDialog {
         });
         getContentPane().setLayout(new java.awt.GridBagLayout());
 
-        lblPosition.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lblPosition.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
         lblPosition.setText("Position");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
@@ -418,7 +418,7 @@ public class VisibleSignatureDialog extends javax.swing.JDialog {
         gridBagConstraints.insets = new java.awt.Insets(10, 0, 10, 0);
         getContentPane().add(lblPosition, gridBagConstraints);
 
-        lblPage.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblPage.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
         lblPage.setLabelFor(lblPage);
         lblPage.setText("Page");
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -441,7 +441,7 @@ public class VisibleSignatureDialog extends javax.swing.JDialog {
         gridBagConstraints.insets = new java.awt.Insets(2, 5, 2, 5);
         getContentPane().add(tfPage, gridBagConstraints);
 
-        lblPosLLX.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblPosLLX.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
         lblPosLLX.setLabelFor(tfPosLLX);
         lblPosLLX.setText("Lower Left X");
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -464,7 +464,7 @@ public class VisibleSignatureDialog extends javax.swing.JDialog {
         gridBagConstraints.insets = new java.awt.Insets(2, 5, 2, 5);
         getContentPane().add(tfPosLLX, gridBagConstraints);
 
-        lblPosLLY.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblPosLLY.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
         lblPosLLY.setLabelFor(tfPosLLY);
         lblPosLLY.setText("Lower Left Y");
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -487,7 +487,7 @@ public class VisibleSignatureDialog extends javax.swing.JDialog {
         gridBagConstraints.insets = new java.awt.Insets(2, 5, 2, 5);
         getContentPane().add(tfPosLLY, gridBagConstraints);
 
-        lblPosURX.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblPosURX.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
         lblPosURX.setLabelFor(tfPosURX);
         lblPosURX.setText("Upper Right X");
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -510,7 +510,7 @@ public class VisibleSignatureDialog extends javax.swing.JDialog {
         gridBagConstraints.insets = new java.awt.Insets(2, 5, 2, 5);
         getContentPane().add(tfPosURX, gridBagConstraints);
 
-        lblPosURY.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblPosURY.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
         lblPosURY.setLabelFor(tfPosURY);
         lblPosURY.setText("Upper Right Y");
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -533,7 +533,7 @@ public class VisibleSignatureDialog extends javax.swing.JDialog {
         gridBagConstraints.insets = new java.awt.Insets(2, 5, 2, 5);
         getContentPane().add(tfPosURY, gridBagConstraints);
 
-        lblSettings.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lblSettings.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
         lblSettings.setText("Settings");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -543,7 +543,7 @@ public class VisibleSignatureDialog extends javax.swing.JDialog {
         gridBagConstraints.insets = new java.awt.Insets(10, 0, 10, 0);
         getContentPane().add(lblSettings, gridBagConstraints);
 
-        lblDisplayMode.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblDisplayMode.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
         lblDisplayMode.setLabelFor(cbDisplayMode);
         lblDisplayMode.setText("Display");
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -570,7 +570,7 @@ public class VisibleSignatureDialog extends javax.swing.JDialog {
         gridBagConstraints.insets = new java.awt.Insets(2, 5, 2, 5);
         getContentPane().add(cbDisplayMode, gridBagConstraints);
 
-        chkbL2TextDefault.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        chkbL2TextDefault.setFont(new java.awt.Font("Segoe UI Emoji", 0, 14)); // NOI18N
         chkbL2TextDefault.setText("Default");
         chkbL2TextDefault.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
         chkbL2TextDefault.setMargin(new java.awt.Insets(0, 0, 0, 0));
@@ -587,7 +587,7 @@ public class VisibleSignatureDialog extends javax.swing.JDialog {
         gridBagConstraints.insets = new java.awt.Insets(0, 2, 0, 2);
         getContentPane().add(chkbL2TextDefault, gridBagConstraints);
 
-        lblL4Text.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblL4Text.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
         lblL4Text.setLabelFor(tfL4Text);
         lblL4Text.setText("Status text");
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -608,7 +608,7 @@ public class VisibleSignatureDialog extends javax.swing.JDialog {
         gridBagConstraints.insets = new java.awt.Insets(2, 5, 2, 5);
         getContentPane().add(tfL4Text, gridBagConstraints);
 
-        chkbL4TextDefault.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        chkbL4TextDefault.setFont(new java.awt.Font("Segoe UI Emoji", 0, 14)); // NOI18N
         chkbL4TextDefault.setText("Default");
         chkbL4TextDefault.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
         chkbL4TextDefault.setMargin(new java.awt.Insets(0, 0, 0, 0));
@@ -624,7 +624,7 @@ public class VisibleSignatureDialog extends javax.swing.JDialog {
         gridBagConstraints.insets = new java.awt.Insets(0, 2, 0, 2);
         getContentPane().add(chkbL4TextDefault, gridBagConstraints);
 
-        lblImgPath.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblImgPath.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
         lblImgPath.setLabelFor(tfImgPath);
         lblImgPath.setText("Image");
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -646,7 +646,7 @@ public class VisibleSignatureDialog extends javax.swing.JDialog {
         gridBagConstraints.insets = new java.awt.Insets(2, 5, 2, 5);
         getContentPane().add(tfImgPath, gridBagConstraints);
 
-        btnImgPathBrowse.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btnImgPathBrowse.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
         btnImgPathBrowse.setIcon(new javax.swing.ImageIcon(getClass().getResource("/net/sf/jsignpdf/fileopen16.png"))); // NOI18N
         btnImgPathBrowse.setText("Browse");
         btnImgPathBrowse.setHorizontalAlignment(javax.swing.SwingConstants.LEADING);
@@ -662,7 +662,7 @@ public class VisibleSignatureDialog extends javax.swing.JDialog {
         gridBagConstraints.insets = new java.awt.Insets(0, 2, 0, 2);
         getContentPane().add(btnImgPathBrowse, gridBagConstraints);
 
-        lblBgImgPath.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblBgImgPath.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
         lblBgImgPath.setLabelFor(tfBgImgPath);
         lblBgImgPath.setText("Background image");
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -684,7 +684,7 @@ public class VisibleSignatureDialog extends javax.swing.JDialog {
         gridBagConstraints.insets = new java.awt.Insets(2, 5, 2, 5);
         getContentPane().add(tfBgImgPath, gridBagConstraints);
 
-        btnBgImgPathBrowse.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btnBgImgPathBrowse.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
         btnBgImgPathBrowse.setIcon(new javax.swing.ImageIcon(getClass().getResource("/net/sf/jsignpdf/fileopen16.png"))); // NOI18N
         btnBgImgPathBrowse.setText("Browse");
         btnBgImgPathBrowse.setHorizontalAlignment(javax.swing.SwingConstants.LEADING);
@@ -700,7 +700,7 @@ public class VisibleSignatureDialog extends javax.swing.JDialog {
         gridBagConstraints.insets = new java.awt.Insets(0, 2, 0, 2);
         getContentPane().add(btnBgImgPathBrowse, gridBagConstraints);
 
-        lblBgImgScale.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblBgImgScale.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
         lblBgImgScale.setLabelFor(tfBgImgScale);
         lblBgImgScale.setText("Background image scale");
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -723,7 +723,7 @@ public class VisibleSignatureDialog extends javax.swing.JDialog {
         gridBagConstraints.insets = new java.awt.Insets(2, 5, 2, 5);
         getContentPane().add(tfBgImgScale, gridBagConstraints);
 
-        btnClose.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btnClose.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
         btnClose.setIcon(new javax.swing.ImageIcon(getClass().getResource("/net/sf/jsignpdf/back16.png"))); // NOI18N
         btnClose.setText("Close");
         btnClose.setHorizontalAlignment(javax.swing.SwingConstants.LEADING);
@@ -739,28 +739,28 @@ public class VisibleSignatureDialog extends javax.swing.JDialog {
         gridBagConstraints.insets = new java.awt.Insets(10, 2, 5, 2);
         getContentPane().add(btnClose, gridBagConstraints);
 
-        lblPageBounds.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblPageBounds.setFont(new java.awt.Font("Segoe UI Emoji", 0, 14)); // NOI18N
         lblPageBounds.setText("1 - 10");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 1;
         getContentPane().add(lblPageBounds, gridBagConstraints);
 
-        lblPosLLXBounds.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblPosLLXBounds.setFont(new java.awt.Font("Segoe UI Emoji", 0, 14)); // NOI18N
         lblPosLLXBounds.setText("0.0 - 20.0");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 2;
         getContentPane().add(lblPosLLXBounds, gridBagConstraints);
 
-        lblPosLLYBounds.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblPosLLYBounds.setFont(new java.awt.Font("Segoe UI Emoji", 0, 14)); // NOI18N
         lblPosLLYBounds.setText("0.0 - 20.0");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 3;
         getContentPane().add(lblPosLLYBounds, gridBagConstraints);
 
-        lblL2Text.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblL2Text.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
         lblL2Text.setLabelFor(taL2Text);
         lblL2Text.setText("Signature text");
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -772,7 +772,7 @@ public class VisibleSignatureDialog extends javax.swing.JDialog {
         gridBagConstraints.insets = new java.awt.Insets(2, 5, 2, 5);
         getContentPane().add(lblL2Text, gridBagConstraints);
 
-        lblL2TextFontSize.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblL2TextFontSize.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
         lblL2TextFontSize.setLabelFor(tfL2TextFontSize);
         lblL2TextFontSize.setText("Signature text size");
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -793,7 +793,7 @@ public class VisibleSignatureDialog extends javax.swing.JDialog {
         gridBagConstraints.insets = new java.awt.Insets(2, 5, 2, 5);
         getContentPane().add(tfL2TextFontSize, gridBagConstraints);
 
-        btnPreview.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btnPreview.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
         btnPreview.setIcon(new javax.swing.ImageIcon(getClass().getResource("/net/sf/jsignpdf/preview16.png"))); // NOI18N
         btnPreview.setText("Preview");
         btnPreview.addActionListener(new java.awt.event.ActionListener() {
@@ -823,7 +823,7 @@ public class VisibleSignatureDialog extends javax.swing.JDialog {
         gridBagConstraints.insets = new java.awt.Insets(2, 5, 2, 5);
         getContentPane().add(jScrollPane1, gridBagConstraints);
 
-        chkbAcro6Layers.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        chkbAcro6Layers.setFont(new java.awt.Font("Segoe UI Emoji", 0, 14)); // NOI18N
         chkbAcro6Layers.setSelected(true);
         chkbAcro6Layers.setText("Acrobat 6 layer mode");
         chkbAcro6Layers.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));

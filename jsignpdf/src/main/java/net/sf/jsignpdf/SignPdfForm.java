@@ -29,6 +29,7 @@
  */
 package net.sf.jsignpdf;
 
+import java.awt.Dimension;
 import static net.sf.jsignpdf.Constants.RES;
 import static net.sf.jsignpdf.Constants.LOGGER;
 
@@ -49,6 +50,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.TransferHandler;
+import javax.swing.UIManager;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 import javax.swing.filechooser.FileFilter;
@@ -1504,6 +1506,8 @@ public class SignPdfForm extends javax.swing.JFrame implements SignResultListene
             // Let's do it
             final Thread tmpST = new Thread(signerLogic);
             tmpST.start();
+            UIManager.put("OptionPane.minimumSize",new Dimension(150,150));
+            JOptionPane.showMessageDialog(null, "FIRMA REALIZADA EXITOSAMENTE", "AVISO", JOptionPane.INFORMATION_MESSAGE);
         }
     }// GEN-LAST:event_btnSignItActionPerformed
 

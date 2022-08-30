@@ -25,6 +25,9 @@
   <SubComponents>
     <Component class="javax.swing.JCheckBox" name="chkbTsaEnabled">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Segoe UI Emoji" size="13" style="1"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Use timestamp server"/>
         <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
           <Dimension value="[2147483647, 2147483647]"/>
@@ -41,6 +44,9 @@
     </Component>
     <Component class="javax.swing.JLabel" name="lblTsaUrl">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Segoe UI Emoji" size="13" style="1"/>
+        </Property>
         <Property name="horizontalAlignment" type="int" value="2"/>
         <Property name="labelFor" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
           <ComponentRef name="tfTsaUrl"/>
@@ -70,6 +76,9 @@
     </Component>
     <Component class="javax.swing.JLabel" name="lblTsaUser">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Segoe UI Emoji" size="13" style="1"/>
+        </Property>
         <Property name="horizontalAlignment" type="int" value="2"/>
         <Property name="labelFor" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
           <ComponentRef name="tfTsaUser"/>
@@ -84,6 +93,9 @@
     </Component>
     <Component class="javax.swing.JLabel" name="lblTsaPwd">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Segoe UI Emoji" size="13" style="1"/>
+        </Property>
         <Property name="horizontalAlignment" type="int" value="2"/>
         <Property name="labelFor" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
           <ComponentRef name="pfTsaPwd"/>
@@ -117,6 +129,9 @@
     </Component>
     <Component class="javax.swing.JCheckBox" name="chkbOcspEnabled">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Segoe UI Emoji" size="13" style="1"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Use OCSP"/>
         <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
           <Dimension value="[2147483647, 2147483647]"/>
@@ -133,6 +148,9 @@
     </Component>
     <Component class="javax.swing.JButton" name="btnTsaOK">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Segoe UI Emoji" size="13" style="1"/>
+        </Property>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/net/sf/jsignpdf/back16.png"/>
         </Property>
@@ -149,6 +167,9 @@
     </Component>
     <Component class="javax.swing.JCheckBox" name="chkbCrlEnabled">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Segoe UI Emoji" size="13" style="1"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Use CRL"/>
         <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
           <Dimension value="[2147483647, 2147483647]"/>
@@ -178,6 +199,9 @@
       <SubComponents>
         <Component class="javax.swing.JLabel" name="lblProxyHost">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI Emoji" size="13" style="1"/>
+            </Property>
             <Property name="horizontalAlignment" type="int" value="2"/>
             <Property name="labelFor" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
               <ComponentRef name="tfProxyHost"/>
@@ -207,6 +231,9 @@
         </Component>
         <Component class="javax.swing.JLabel" name="lblProxyType">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI Emoji" size="13" style="1"/>
+            </Property>
             <Property name="horizontalAlignment" type="int" value="2"/>
             <Property name="labelFor" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
               <ComponentRef name="cbProxyType"/>
@@ -262,6 +289,9 @@
     </Container>
     <Component class="javax.swing.JLabel" name="lblTsaPolicy">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Segoe UI Emoji" size="13" style="1"/>
+        </Property>
         <Property name="horizontalAlignment" type="int" value="2"/>
         <Property name="labelFor" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
           <ComponentRef name="tfTsaPolicy"/>
@@ -288,6 +318,9 @@
     </Component>
     <Component class="javax.swing.JLabel" name="lblOcspUrl">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Segoe UI Emoji" size="13" style="1"/>
+        </Property>
         <Property name="horizontalAlignment" type="int" value="2"/>
         <Property name="labelFor" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
           <ComponentRef name="tfOcspUrl"/>
@@ -338,6 +371,9 @@
     </Component>
     <Component class="javax.swing.JLabel" name="lblTsaAuthn">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Segoe UI Emoji" size="13" style="1"/>
+        </Property>
         <Property name="labelFor" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
           <ComponentRef name="cbTsaAuthn"/>
         </Property>
@@ -351,6 +387,9 @@
     </Component>
     <Component class="javax.swing.JLabel" name="lblTsaHashAlg">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Segoe UI Emoji" size="13" style="1"/>
+        </Property>
         <Property name="horizontalAlignment" type="int" value="2"/>
         <Property name="labelFor" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
           <ComponentRef name="tfTsaHashAlg"/>
