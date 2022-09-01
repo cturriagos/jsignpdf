@@ -660,8 +660,8 @@ public class SignPdfForm extends javax.swing.JFrame implements SignResultListene
         rightsDialog.getContentPane().add(btnRightsOK, gridBagConstraints);
 
         setTitle("SignPdf");
-        setMaximumSize(new java.awt.Dimension(700, 749));
-        setMinimumSize(new java.awt.Dimension(700, 749));
+        setMaximumSize(new java.awt.Dimension(900, 879));
+        setMinimumSize(new java.awt.Dimension(900, 879));
         setPreferredSize(new java.awt.Dimension(700, 749));
         setResizable(false);
         setSize(new java.awt.Dimension(700, 749));
@@ -670,18 +670,12 @@ public class SignPdfForm extends javax.swing.JFrame implements SignResultListene
                 formWindowClosing(evt);
             }
         });
-        getContentPane().setLayout(new java.awt.GridBagLayout());
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lblKeystoreType.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
         lblKeystoreType.setLabelFor(cbKeystoreType);
         lblKeystoreType.setText("Keystore type");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.ipady = 20;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.insets = new java.awt.Insets(2, 5, 2, 10);
-        getContentPane().add(lblKeystoreType, gridBagConstraints);
+        getContentPane().add(lblKeystoreType, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 90, -1, -1));
 
         cbKeystoreType.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         cbKeystoreType.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "PKCS#12", "JKS" }));
@@ -692,24 +686,12 @@ public class SignPdfForm extends javax.swing.JFrame implements SignResultListene
                 cbKeystoreTypeActionPerformed(evt);
             }
         });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
-        getContentPane().add(cbKeystoreType, gridBagConstraints);
+        getContentPane().add(cbKeystoreType, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 90, 474, -1));
 
         lblKeystoreFile.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
         lblKeystoreFile.setLabelFor(tfKeystoreFile);
         lblKeystoreFile.setText("Keystore file");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.ipady = 20;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(2, 5, 2, 10);
-        getContentPane().add(lblKeystoreFile, gridBagConstraints);
+        getContentPane().add(lblKeystoreFile, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 120, -1, 37));
 
         btnVisibleSigSettings.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
         btnVisibleSigSettings.setIcon(new javax.swing.ImageIcon(getClass().getResource("/net/sf/jsignpdf/options16.png"))); // NOI18N
@@ -720,24 +702,12 @@ public class SignPdfForm extends javax.swing.JFrame implements SignResultListene
                 btnVisibleSigSettingsActionPerformed(evt);
             }
         });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 18;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.insets = new java.awt.Insets(1, 5, 1, 5);
-        getContentPane().add(btnVisibleSigSettings, gridBagConstraints);
+        getContentPane().add(btnVisibleSigSettings, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 760, 151, -1));
 
         tfKeystoreFile.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         tfKeystoreFile.setMinimumSize(new java.awt.Dimension(250, 20));
         tfKeystoreFile.setPreferredSize(new java.awt.Dimension(250, 20));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.weightx = 10.0;
-        gridBagConstraints.insets = new java.awt.Insets(2, 0, 2, 0);
-        getContentPane().add(tfKeystoreFile, gridBagConstraints);
+        getContentPane().add(tfKeystoreFile, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 130, 474, -1));
 
         btnKeystoreFile.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
         btnKeystoreFile.setIcon(new javax.swing.ImageIcon(getClass().getResource("/net/sf/jsignpdf/fileopen16.png"))); // NOI18N
@@ -748,70 +718,33 @@ public class SignPdfForm extends javax.swing.JFrame implements SignResultListene
                 btnKeystoreFileActionPerformed(evt);
             }
         });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(1, 5, 1, 5);
-        getContentPane().add(btnKeystoreFile, gridBagConstraints);
+        getContentPane().add(btnKeystoreFile, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 130, 151, -1));
 
         lblKeystorePwd.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
         lblKeystorePwd.setLabelFor(pfKeystorePwd);
         lblKeystorePwd.setText("Keystore password");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.ipady = 20;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.insets = new java.awt.Insets(2, 5, 2, 10);
-        getContentPane().add(lblKeystorePwd, gridBagConstraints);
+        getContentPane().add(lblKeystorePwd, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 160, -1, 37));
 
         pfKeystorePwd.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         pfKeystorePwd.setMinimumSize(new java.awt.Dimension(150, 20));
         pfKeystorePwd.setPreferredSize(new java.awt.Dimension(150, 20));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.insets = new java.awt.Insets(2, 0, 2, 0);
-        getContentPane().add(pfKeystorePwd, gridBagConstraints);
+        getContentPane().add(pfKeystorePwd, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 170, 474, -1));
 
-        chkbStorePwd.setFont(new java.awt.Font("Segoe UI Emoji", 0, 14)); // NOI18N
+        chkbStorePwd.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
         chkbStorePwd.setText("Store passwords");
         chkbStorePwd.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.insets = new java.awt.Insets(1, 5, 1, 5);
-        getContentPane().add(chkbStorePwd, gridBagConstraints);
+        getContentPane().add(chkbStorePwd, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 170, 165, -1));
 
         lblAlias.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
         lblAlias.setLabelFor(cbAlias);
         lblAlias.setText("Key alias");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 3;
-        gridBagConstraints.ipady = 20;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.insets = new java.awt.Insets(2, 5, 2, 10);
-        getContentPane().add(lblAlias, gridBagConstraints);
+        getContentPane().add(lblAlias, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 200, -1, 37));
 
         cbAlias.setEditable(true);
         cbAlias.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         cbAlias.setMinimumSize(new java.awt.Dimension(150, 20));
         cbAlias.setPreferredSize(new java.awt.Dimension(150, 20));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 3;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.insets = new java.awt.Insets(2, 0, 2, 0);
-        getContentPane().add(cbAlias, gridBagConstraints);
+        getContentPane().add(cbAlias, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 210, 474, -1));
 
         btnLoadAliases.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
         btnLoadAliases.setIcon(new javax.swing.ImageIcon(getClass().getResource("/net/sf/jsignpdf/refresh16.png"))); // NOI18N
@@ -822,58 +755,28 @@ public class SignPdfForm extends javax.swing.JFrame implements SignResultListene
                 btnLoadAliasesActionPerformed(evt);
             }
         });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 3;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.insets = new java.awt.Insets(1, 5, 1, 5);
-        getContentPane().add(btnLoadAliases, gridBagConstraints);
+        getContentPane().add(btnLoadAliases, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 210, 151, -1));
 
         lblKeyPwd.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
         lblKeyPwd.setLabelFor(pfKeyPwd);
         lblKeyPwd.setText("Key password");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 4;
-        gridBagConstraints.ipady = 20;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.insets = new java.awt.Insets(2, 5, 2, 10);
-        getContentPane().add(lblKeyPwd, gridBagConstraints);
+        getContentPane().add(lblKeyPwd, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 250, -1, 37));
 
         pfKeyPwd.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         pfKeyPwd.setMinimumSize(new java.awt.Dimension(150, 20));
         pfKeyPwd.setPreferredSize(new java.awt.Dimension(150, 20));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 4;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.insets = new java.awt.Insets(2, 0, 2, 0);
-        getContentPane().add(pfKeyPwd, gridBagConstraints);
+        getContentPane().add(pfKeyPwd, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 250, 474, -1));
 
         lblInPdfFile.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
         lblInPdfFile.setLabelFor(tfInPdfFile);
         lblInPdfFile.setText("Input PDF file");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 5;
-        gridBagConstraints.ipady = 20;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.insets = new java.awt.Insets(2, 5, 2, 10);
-        getContentPane().add(lblInPdfFile, gridBagConstraints);
+        getContentPane().add(lblInPdfFile, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 290, -1, 37));
 
         tfInPdfFile.setEditable(false);
         tfInPdfFile.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         tfInPdfFile.setMinimumSize(new java.awt.Dimension(150, 20));
         tfInPdfFile.setPreferredSize(new java.awt.Dimension(150, 20));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 5;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.insets = new java.awt.Insets(2, 0, 2, 0);
-        getContentPane().add(tfInPdfFile, gridBagConstraints);
+        getContentPane().add(tfInPdfFile, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 290, 474, -1));
 
         btnInPdfFile.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
         btnInPdfFile.setIcon(new javax.swing.ImageIcon(getClass().getResource("/net/sf/jsignpdf/fileopen16.png"))); // NOI18N
@@ -884,80 +787,38 @@ public class SignPdfForm extends javax.swing.JFrame implements SignResultListene
                 btnInPdfFileActionPerformed(evt);
             }
         });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 5;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.insets = new java.awt.Insets(1, 5, 1, 5);
-        getContentPane().add(btnInPdfFile, gridBagConstraints);
+        getContentPane().add(btnInPdfFile, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 290, 151, -1));
 
         lblPdfOwnerPwd.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
         lblPdfOwnerPwd.setLabelFor(pfPdfOwnerPwd);
         lblPdfOwnerPwd.setText("Owner password");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 9;
-        gridBagConstraints.ipady = 20;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.insets = new java.awt.Insets(2, 5, 2, 10);
-        getContentPane().add(lblPdfOwnerPwd, gridBagConstraints);
+        getContentPane().add(lblPdfOwnerPwd, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 410, -1, 37));
 
         pfPdfOwnerPwd.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         pfPdfOwnerPwd.setMinimumSize(new java.awt.Dimension(150, 20));
         pfPdfOwnerPwd.setPreferredSize(new java.awt.Dimension(150, 20));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 9;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.insets = new java.awt.Insets(2, 0, 2, 0);
-        getContentPane().add(pfPdfOwnerPwd, gridBagConstraints);
+        getContentPane().add(pfPdfOwnerPwd, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 420, 474, -1));
 
         lblPdfUserPwd.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
         lblPdfUserPwd.setLabelFor(pfPdfUserPwd);
         lblPdfUserPwd.setText("User password");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 10;
-        gridBagConstraints.ipady = 20;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.insets = new java.awt.Insets(2, 5, 2, 10);
-        getContentPane().add(lblPdfUserPwd, gridBagConstraints);
+        getContentPane().add(lblPdfUserPwd, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 450, -1, 37));
 
         pfPdfUserPwd.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         pfPdfUserPwd.setMinimumSize(new java.awt.Dimension(150, 20));
         pfPdfUserPwd.setPreferredSize(new java.awt.Dimension(150, 20));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 10;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.insets = new java.awt.Insets(2, 0, 2, 0);
-        getContentPane().add(pfPdfUserPwd, gridBagConstraints);
+        getContentPane().add(pfPdfUserPwd, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 460, 474, -1));
 
         lblOutPdfFile.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
         lblOutPdfFile.setLabelFor(tfOutPdfFile);
         lblOutPdfFile.setText("Output PDF file");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 11;
-        gridBagConstraints.ipady = 20;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.insets = new java.awt.Insets(2, 5, 2, 10);
-        getContentPane().add(lblOutPdfFile, gridBagConstraints);
+        getContentPane().add(lblOutPdfFile, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 490, -1, 37));
 
         tfOutPdfFile.setEditable(false);
         tfOutPdfFile.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         tfOutPdfFile.setMinimumSize(new java.awt.Dimension(150, 20));
         tfOutPdfFile.setPreferredSize(new java.awt.Dimension(150, 20));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 11;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.insets = new java.awt.Insets(2, 0, 2, 0);
-        getContentPane().add(tfOutPdfFile, gridBagConstraints);
+        getContentPane().add(tfOutPdfFile, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 500, 474, -1));
 
         btnOutPdfFile.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
         btnOutPdfFile.setIcon(new javax.swing.ImageIcon(getClass().getResource("/net/sf/jsignpdf/fileopen16.png"))); // NOI18N
@@ -968,90 +829,42 @@ public class SignPdfForm extends javax.swing.JFrame implements SignResultListene
                 btnOutPdfFileActionPerformed(evt);
             }
         });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 11;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.insets = new java.awt.Insets(1, 5, 1, 5);
-        getContentPane().add(btnOutPdfFile, gridBagConstraints);
+        getContentPane().add(btnOutPdfFile, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 500, 151, -1));
 
         lblReason.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
         lblReason.setLabelFor(tfReason);
         lblReason.setText("Reason");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 13;
-        gridBagConstraints.ipady = 20;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.insets = new java.awt.Insets(2, 5, 2, 10);
-        getContentPane().add(lblReason, gridBagConstraints);
+        getContentPane().add(lblReason, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 550, -1, 37));
 
         tfReason.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         tfReason.setMinimumSize(new java.awt.Dimension(150, 20));
         tfReason.setPreferredSize(new java.awt.Dimension(150, 20));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 13;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.insets = new java.awt.Insets(2, 0, 2, 0);
-        getContentPane().add(tfReason, gridBagConstraints);
+        getContentPane().add(tfReason, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 560, 474, -1));
 
         lblLocation.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
         lblLocation.setLabelFor(tfLocation);
         lblLocation.setText("Location");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 14;
-        gridBagConstraints.ipady = 20;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.insets = new java.awt.Insets(2, 5, 2, 10);
-        getContentPane().add(lblLocation, gridBagConstraints);
+        getContentPane().add(lblLocation, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 590, -1, 37));
 
         tfLocation.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         tfLocation.setMinimumSize(new java.awt.Dimension(150, 20));
         tfLocation.setPreferredSize(new java.awt.Dimension(150, 20));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 14;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.insets = new java.awt.Insets(2, 0, 2, 0);
-        getContentPane().add(tfLocation, gridBagConstraints);
+        getContentPane().add(tfLocation, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 600, 474, -1));
 
         lblCertLevel.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
         lblCertLevel.setLabelFor(cbCertLevel);
         lblCertLevel.setText("Certification level");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 16;
-        gridBagConstraints.ipady = 20;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.insets = new java.awt.Insets(2, 5, 2, 10);
-        getContentPane().add(lblCertLevel, gridBagConstraints);
+        getContentPane().add(lblCertLevel, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 680, -1, 37));
 
         cbCertLevel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         cbCertLevel.setMinimumSize(new java.awt.Dimension(150, 20));
         cbCertLevel.setPreferredSize(new java.awt.Dimension(150, 20));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 16;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.insets = new java.awt.Insets(2, 0, 2, 0);
-        getContentPane().add(cbCertLevel, gridBagConstraints);
+        getContentPane().add(cbCertLevel, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 680, 474, -1));
 
-        chkbAppendSignature.setFont(new java.awt.Font("Segoe UI Emoji", 0, 14)); // NOI18N
+        chkbAppendSignature.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
         chkbAppendSignature.setText("Append signature");
         chkbAppendSignature.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 12;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.insets = new java.awt.Insets(2, 0, 2, 0);
-        getContentPane().add(chkbAppendSignature, gridBagConstraints);
+        getContentPane().add(chkbAppendSignature, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 530, 490, -1));
 
         btnSignIt.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
         btnSignIt.setIcon(new javax.swing.ImageIcon(getClass().getResource("/net/sf/jsignpdf/signedpdf26.png"))); // NOI18N
@@ -1061,15 +874,9 @@ public class SignPdfForm extends javax.swing.JFrame implements SignResultListene
                 btnSignItActionPerformed(evt);
             }
         });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 19;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        getContentPane().add(btnSignIt, gridBagConstraints);
+        getContentPane().add(btnSignIt, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 790, 151, -1));
 
-        chkbAdvanced.setFont(new java.awt.Font("Segoe UI Emoji", 0, 14)); // NOI18N
+        chkbAdvanced.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
         chkbAdvanced.setSelected(true);
         chkbAdvanced.setText("Advanced view");
         chkbAdvanced.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
@@ -1078,12 +885,7 @@ public class SignPdfForm extends javax.swing.JFrame implements SignResultListene
                 chkbAdvancedActionPerformed(evt);
             }
         });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.insets = new java.awt.Insets(1, 5, 1, 5);
-        getContentPane().add(chkbAdvanced, gridBagConstraints);
+        getContentPane().add(chkbAdvanced, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 90, 165, -1));
 
         btnRights.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
         btnRights.setIcon(new javax.swing.ImageIcon(getClass().getResource("/net/sf/jsignpdf/security16.png"))); // NOI18N
@@ -1094,15 +896,9 @@ public class SignPdfForm extends javax.swing.JFrame implements SignResultListene
                 btnRightsActionPerformed(evt);
             }
         });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 7;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.insets = new java.awt.Insets(1, 5, 1, 5);
-        getContentPane().add(btnRights, gridBagConstraints);
+        getContentPane().add(btnRights, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 330, 151, -1));
 
-        chkbVisibleSig.setFont(new java.awt.Font("Segoe UI Emoji", 0, 14)); // NOI18N
+        chkbVisibleSig.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
         chkbVisibleSig.setText("Visible signature");
         chkbVisibleSig.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
         chkbVisibleSig.setEnabled(false);
@@ -1111,34 +907,17 @@ public class SignPdfForm extends javax.swing.JFrame implements SignResultListene
                 chkbVisibleSigActionPerformed(evt);
             }
         });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 18;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.insets = new java.awt.Insets(2, 0, 2, 0);
-        getContentPane().add(chkbVisibleSig, gridBagConstraints);
+        getContentPane().add(chkbVisibleSig, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 760, 490, -1));
 
         lblContact.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
         lblContact.setLabelFor(tfContact);
         lblContact.setText("Contact");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 15;
-        gridBagConstraints.ipady = 20;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.insets = new java.awt.Insets(2, 5, 2, 10);
-        getContentPane().add(lblContact, gridBagConstraints);
+        getContentPane().add(lblContact, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 640, -1, 37));
 
         tfContact.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         tfContact.setMinimumSize(new java.awt.Dimension(150, 20));
         tfContact.setPreferredSize(new java.awt.Dimension(150, 20));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 15;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.insets = new java.awt.Insets(2, 0, 2, 0);
-        getContentPane().add(tfContact, gridBagConstraints);
+        getContentPane().add(tfContact, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 640, 474, -1));
 
         btnTsaOcsp.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
         btnTsaOcsp.setIcon(new javax.swing.ImageIcon(getClass().getResource("/net/sf/jsignpdf/clock16.png"))); // NOI18N
@@ -1149,45 +928,22 @@ public class SignPdfForm extends javax.swing.JFrame implements SignResultListene
                 btnTsaOcspActionPerformed(evt);
             }
         });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 15;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.insets = new java.awt.Insets(1, 5, 1, 5);
-        getContentPane().add(btnTsaOcsp, gridBagConstraints);
+        getContentPane().add(btnTsaOcsp, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 640, 151, -1));
 
         cbHashAlgorithm.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         cbHashAlgorithm.setMinimumSize(new java.awt.Dimension(150, 20));
         cbHashAlgorithm.setPreferredSize(new java.awt.Dimension(150, 20));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 17;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.insets = new java.awt.Insets(2, 0, 2, 0);
-        getContentPane().add(cbHashAlgorithm, gridBagConstraints);
+        getContentPane().add(cbHashAlgorithm, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 730, 474, -1));
 
         lblHashAlgorithm.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
         lblHashAlgorithm.setLabelFor(cbHashAlgorithm);
         lblHashAlgorithm.setText("Hash algorithm");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 17;
-        gridBagConstraints.ipady = 20;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.insets = new java.awt.Insets(2, 5, 2, 10);
-        getContentPane().add(lblHashAlgorithm, gridBagConstraints);
+        getContentPane().add(lblHashAlgorithm, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 720, -1, 37));
 
         lblPdfEncryption.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
         lblPdfEncryption.setLabelFor(cbPdfEncryption);
         lblPdfEncryption.setText("PDF Encryption");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 7;
-        gridBagConstraints.ipady = 20;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.insets = new java.awt.Insets(2, 5, 2, 10);
-        getContentPane().add(lblPdfEncryption, gridBagConstraints);
+        getContentPane().add(lblPdfEncryption, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 330, -1, 37));
 
         cbPdfEncryption.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         cbPdfEncryption.setMinimumSize(new java.awt.Dimension(150, 20));
@@ -1197,35 +953,17 @@ public class SignPdfForm extends javax.swing.JFrame implements SignResultListene
                 cbPdfEncryptionActionPerformed(evt);
             }
         });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 7;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.insets = new java.awt.Insets(2, 0, 2, 0);
-        getContentPane().add(cbPdfEncryption, gridBagConstraints);
+        getContentPane().add(cbPdfEncryption, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 340, 474, -1));
 
         lblEncCertFile.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
         lblEncCertFile.setLabelFor(tfEncCertFile);
         lblEncCertFile.setText("Certificate file");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 8;
-        gridBagConstraints.ipady = 20;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.insets = new java.awt.Insets(2, 5, 2, 10);
-        getContentPane().add(lblEncCertFile, gridBagConstraints);
+        getContentPane().add(lblEncCertFile, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 370, -1, 37));
 
         tfEncCertFile.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         tfEncCertFile.setMinimumSize(new java.awt.Dimension(150, 20));
         tfEncCertFile.setPreferredSize(new java.awt.Dimension(150, 20));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 8;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.insets = new java.awt.Insets(2, 0, 2, 0);
-        getContentPane().add(tfEncCertFile, gridBagConstraints);
+        getContentPane().add(tfEncCertFile, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 380, 474, -1));
 
         btnEncCertFile.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
         btnEncCertFile.setIcon(new javax.swing.ImageIcon(getClass().getResource("/net/sf/jsignpdf/fileopen16.png"))); // NOI18N
@@ -1236,13 +974,7 @@ public class SignPdfForm extends javax.swing.JFrame implements SignResultListene
                 btnEncCertFileActionPerformed(evt);
             }
         });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 8;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.insets = new java.awt.Insets(1, 5, 1, 5);
-        getContentPane().add(btnEncCertFile, gridBagConstraints);
+        getContentPane().add(btnEncCertFile, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 370, 151, -1));
 
         btnInfoOutPdfFile.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnInfoOutPdfFile.setIcon(new javax.swing.ImageIcon(getClass().getResource("/net/sf/jsignpdf/icon-info.png"))); // NOI18N
@@ -1254,11 +986,7 @@ public class SignPdfForm extends javax.swing.JFrame implements SignResultListene
                 btnInfoOutPdfFileActionPerformed(evt);
             }
         });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 11;
-        gridBagConstraints.insets = new java.awt.Insets(0, 0, 0, 10);
-        getContentPane().add(btnInfoOutPdfFile, gridBagConstraints);
+        getContentPane().add(btnInfoOutPdfFile, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 500, -1, -1));
 
         btnInfoPdfEncryption.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnInfoPdfEncryption.setIcon(new javax.swing.ImageIcon(getClass().getResource("/net/sf/jsignpdf/icon-info.png"))); // NOI18N
@@ -1270,11 +998,7 @@ public class SignPdfForm extends javax.swing.JFrame implements SignResultListene
                 btnInfoPdfEncryptionActionPerformed(evt);
             }
         });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 7;
-        gridBagConstraints.insets = new java.awt.Insets(0, 0, 0, 10);
-        getContentPane().add(btnInfoPdfEncryption, gridBagConstraints);
+        getContentPane().add(btnInfoPdfEncryption, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 340, -1, -1));
 
         btnInfoCertificationLevel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnInfoCertificationLevel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/net/sf/jsignpdf/icon-info.png"))); // NOI18N
@@ -1286,11 +1010,7 @@ public class SignPdfForm extends javax.swing.JFrame implements SignResultListene
                 btnInfoCertificationLevelActionPerformed(evt);
             }
         });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 17;
-        gridBagConstraints.insets = new java.awt.Insets(0, 0, 0, 10);
-        getContentPane().add(btnInfoCertificationLevel, gridBagConstraints);
+        getContentPane().add(btnInfoCertificationLevel, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 730, -1, -1));
 
         btnInfokeyAlias.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnInfokeyAlias.setIcon(new javax.swing.ImageIcon(getClass().getResource("/net/sf/jsignpdf/icon-info.png"))); // NOI18N
@@ -1302,11 +1022,7 @@ public class SignPdfForm extends javax.swing.JFrame implements SignResultListene
                 btnInfokeyAliasActionPerformed(evt);
             }
         });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 3;
-        gridBagConstraints.insets = new java.awt.Insets(0, 0, 0, 10);
-        getContentPane().add(btnInfokeyAlias, gridBagConstraints);
+        getContentPane().add(btnInfokeyAlias, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 210, -1, -1));
 
         btnInfoKeystoreType.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnInfoKeystoreType.setIcon(new javax.swing.ImageIcon(getClass().getResource("/net/sf/jsignpdf/icon-info.png"))); // NOI18N
@@ -1318,12 +1034,7 @@ public class SignPdfForm extends javax.swing.JFrame implements SignResultListene
                 btnInfoKeystoreTypeActionPerformed(evt);
             }
         });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.insets = new java.awt.Insets(0, 0, 0, 10);
-        getContentPane().add(btnInfoKeystoreType, gridBagConstraints);
+        getContentPane().add(btnInfoKeystoreType, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 90, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

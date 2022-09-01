@@ -166,12 +166,12 @@ public class Signer {
             GuiUtils.center(tmpForm);
             tmpForm.setVisible(true);
             JTextArea ta = new JTextArea(20, 30);
-            ta.setText("BIENVENIDOS A JSIGN PDF!\n\nESTE PROGRAMA PARA FIRMAS DIGITALES TE PROPORCIONA LO SIGUIENTE:\n\n"
-                    + "1. FIRMAS EN PDF NORMALES Y ENCRIPTADAS\n"
-                    + "2. LIBERTAD DE ESTABLECER UN ARCHIVO DE SALIDA\n"
-                    + "3. COLOCAR INFORMACIÓN ADICIONAL DENTRO DE LA FIRMA\n"
-                    + "4. ESTABLECER NIVEL DE CERTIFICACIÓN Y TIPO DE HASH\n\n"
-                    + "MODIFICACIONES HECHAS POR RICARDO TURRIAGO Y LUIS DE LA CRUZ");
+            ta.setText("WELCOME TO JSIGNPDF!\n\nTHIS PROGRAM FOR DIGITAL SIGNATURES PROVIDES YOU WITH THE FOLLOWING:\n\n"
+                    + "1. NORMAL AND ENCRYPTED PDF SIGNATURES\n"
+                    + "2. FREEDOM TO SET AN OUTPUT FILE\n"
+                    + "3. PLACE ADDITIONAL INFORMATION WITHIN THE SIGNATURE\n"
+                    + "4. SET CERTIFICATION LEVEL AND HASH TYPE\n\n"
+                    + "MODIFICATIONS MADE BY RICARDO TURRIAGO AND LUIS DE LA CRUZ");
             ta.setCaretPosition(0);
             ta.setEditable(false);
             UIManager.put("OptionPane.minimumSize",new Dimension(700,500));

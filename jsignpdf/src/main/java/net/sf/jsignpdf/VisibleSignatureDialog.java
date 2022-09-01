@@ -724,8 +724,8 @@ public class VisibleSignatureDialog extends javax.swing.JDialog {
         getContentPane().add(tfBgImgScale, gridBagConstraints);
 
         btnClose.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
-        btnClose.setIcon(new javax.swing.ImageIcon(getClass().getResource("/net/sf/jsignpdf/back16.png"))); // NOI18N
-        btnClose.setText("Close");
+        btnClose.setIcon(new javax.swing.ImageIcon(getClass().getResource("/net/sf/jsignpdf/floppy16.png"))); // NOI18N
+        btnClose.setText("Save");
         btnClose.setHorizontalAlignment(javax.swing.SwingConstants.LEADING);
         btnClose.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
